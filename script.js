@@ -31,29 +31,14 @@ const calculateAge = () => {
         "Birthdate cannot be in the future. Please enter a valid date.";
       return;
     }
-
-    // Calculate the age in years
-    const age = now.year - birthDate.year;
-
-    // Calculate the months and days
-    const months = now.month - birthDate.month;
-    const days = now.day - birthDate.day;
-
-    // Adjust for negative months and days
-    if (days < 0) {
-      const previousMonth = now.minus({ days: now.day }).month;
-      const daysInPreviousMonth = now.minus({ days: now.day }).daysInMonth;
-      days += daysInPreviousMonth;
-      months -= 1;
-    }
-
-    if (months < 0) {
-      months += 12;
-      age -= 1;
-    }
-
+    // Using Luxon built-in diffNow function to calculate difference
+    const diff = now.diff(birthDate, ["years", "months", "days"]).toObject();
+    // Round down to get whole numbers and handle potential floating point issues
+    const years = Math.floor(diff.years);
+    const months = Math.floor(diff.months);
+    const days = Math.floor(diff.days);
     // Display the result
-    result.innerHTML = `Ooo My GOD!! You are <span class="year">${age}</span> years, <span class="month">${months}</span> months and <span class="day">${days}</span> days old, That is an achievement!!!`;
+    result.innerHTML = `Ooo My GOD!! You are <span class="year">${years}</span> years, <span class="month">${months}</span> months and <span class="day">${days}</span> days old, That is an achievement!!!`;
   } catch (error) {
     // Handle invalid birthdate format
     result.innerHTML = "Invalid birthdate format. Please enter a valid date.";
