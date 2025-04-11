@@ -3,3 +3,38 @@
   padding: 0;
   box-sizing: border-box;
 }
+--mainColort: hsl(240, 100%, 75%);
+.mainBody {
+  margin: 5vw;
+  padding: 5vw;
+  font-family: cursive;
+  font-size: small;
+}
+.header {
+  margin: 5vw;
+  padding: 5vw;
+}
+
+.header h1 {
+  font-size: x-large;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  background-color: hsl(240, 100%, 75%);
+  margin: 5vw;
+  padding: 5vw;
+  border-radius: 5px;
+}
+input,
+button {
+  background-color: aqua;
+  border-radius: 5px;
+  /* margin: 5vw; */
+  /* padding-left: 5vw; */
+}
+footer {
+  margin: 5vw;
+  padding: 5vw;
+}
