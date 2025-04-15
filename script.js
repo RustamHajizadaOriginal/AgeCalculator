@@ -31,7 +31,7 @@ const calculateAge = () => {
     m3 = 11;
     y3--;
   }
-  result.innerHTML = `Ooo My GOD!! You are ${y3} years, ${m3} months and ${d3} days old, That is an achevement !!!`;
+  result.innerHTML = `Ooo My GOD!! You are <span class="year">${y3}</span> years, <span class="month">${m3}</span> months and <span class="day">${d3}</span> days old, That is an achevement !!!`;
 };
 const getDaysInMonth = (year, month) => {
   return new Date(year, month, 0).getDate();

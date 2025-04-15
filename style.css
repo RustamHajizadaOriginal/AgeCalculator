@@ -84,6 +84,15 @@
   font-family: cursive;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   background-color: var(--background-color);
+}
+.year,
+.month,
+.day {
+  color: var(--secondary-color);
+  font-weight: 900;
+  font-size: xx-large;
+  font-family: cursive;
+  /* box-shadow: #00050d; */
 }
