@@ -36,3 +36,8 @@ const calculateAge = () => {
 const getDaysInMonth = (year, month) => {
   return new Date(year, month, 0).getDate();
 };
+DateTime.now()
+  .setZone("America/New_York")
+  .minus({ weeks: 1 })
+  .endOf("day")
+  .toISO();
