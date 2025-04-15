@@ -51,8 +51,10 @@
   position: relative;
 }
 .input-box button {
-  border-radius: 15px;
-  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
 }
 .input-box button:hover {
   background-color: var(--secondary-color);
@@ -80,12 +82,13 @@
 
 #result {
   /* opacity: 0.9; */
+  text-align: center;
   font-weight: 800;
   font-family: cursive;
-  font-weight: 800;
   text-transform: uppercase;
   color: var(--primary-color);
   background-color: var(--background-color);
+  border-radius: 10px;
 }
 .year,
 .month,
