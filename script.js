@@ -13,6 +13,7 @@ const calculateAge = () => {
 
   try {
     const birthDate = DateTime.fromISO(birthdate);
+    //Get the current date and time
     const now = DateTime.now();
 
     const age = now.diff(birthDate, "years").years;
