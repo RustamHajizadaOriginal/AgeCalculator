@@ -19,19 +19,26 @@ const calculateAge = () => {
   try {
     // Debugging: Log the birthdate to ensure it's in the correct format
     console.log("Birthdate from input:", birthdate);
+
     // Parse the birthdate using Luxon
     const birthDate = DateTime.fromISO(birthdate);
+
     // Debugging: Log the parsed birthdate to ensure it's correct
     console.log("Parsed birthdate:", birthDate.toISO());
+
     //Get the current date and time
     const now = DateTime.now();
+
     // Calculate the age in years, months, and days
     const age = now.diff(birthDate, "years").years;
     const months = now.diff(birthDate, "months").months % 12;
     const days = now.diff(birthDate, "days").days % 30;
+
     // Display the result
     result.innerHTML = `Ooo My GOD!! You are <span class="year">${age}</span> years, <span class="month">${months}</span> months and <span class="day">${days}</span> days old, That is an achevement !!!`;
   } catch (error) {
+    // Debugging: Log the error to understand what went wrong
+    console.error("Error parsing birthdate:", error);
     // Handle invalid birthdate format
     result.innerHTML = "Invalid birthdate format. Please enter a valid date.";
   }
