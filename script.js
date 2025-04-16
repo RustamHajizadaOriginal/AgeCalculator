@@ -1,6 +1,7 @@
-//Written in Luxon-Based Approach
+//===============Written in Luxon-Based Approach
+//Importing the data time class from Luxon
 const { DateTime } = require("luxon");
-
+// function to calculate age
 const calculateAge = () => {
   const userInputEl = document.getElementById("date");
   const result = document.getElementById("result");
