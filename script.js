@@ -21,13 +21,13 @@ const calculateAge = () => {
     console.log("Birthdate from input:", birthdate);
 
     // Parse the birthdate using Luxon
-    const birthDate = DateTime.fromISO(birthdate);
+    const birthDate = luxon.DateTime.fromISO(birthdate);
 
     // Debugging: Log the parsed birthdate to ensure it's correct
     console.log("Parsed birthdate:", birthDate.toISO());
 
     //Get the current date and time
-    const now = DateTime.now();
+    const now = luxon.DateTime.now();
 
     // Calculate the age in years, months, and days
     const age = now.diff(birthDate, "years").years;
