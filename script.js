@@ -1,6 +1,29 @@
 //Written in Luxon-Based Approach
 const { DateTime } = require("luxon");
 
+const calculateAge = () => {
+  const userInputEl = document.getElementById("date");
+  const result = document.getElementById("result");
+  const birthdate = userInputEl.value;
+  if (!birthdate) {
+    result.innerHTML = "Please enter a valid birthdate";
+    return;
+  }
+
+  try {
+    const birthDate = DateTime.fromISO(birthdate);
+    const now = DateTime.now();
+
+    const age = now.diff(birthDate, "years").years;
+    const months = now.diff(birthDate, "months").months % 12;
+    const days = now.diff(birthDate, "days").days % 30;
+
+    result.innerHTML = `Ooo My GOD!! You are <span class="year">${age}</span> years, <span class="month">${months}</span> months and <span class="day">${days}</span> days old, That is an achevement !!!`;
+  } catch (error) {
+    result.innerHTML = "Invalid birthdate format. Please enter a valid date.";
+  }
+};
+
 //Written in Vanilla JavaScript
 // let userInputEl = document.getElementById("date");
 // userInputEl.max = new Date().toISOString().split("T")[0];
