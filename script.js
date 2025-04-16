@@ -1,6 +1,8 @@
 //===============Written in Luxon-Based Approach
 //Importing the data time class from Luxon
-const { DateTime } = require("luxon");
+// const { DateTime } = require("luxon");
+// Note: In a browser environment, Luxon is included via a script tag in the HTML file
+
 // function to calculate age
 const calculateAge = () => {
   const userInputEl = document.getElementById("date");
@@ -12,6 +14,8 @@ const calculateAge = () => {
   }
 
   try {
+    // Debugging: Log the birthdate to ensure it's in the correct format
+    console.log("Birthdate from input:", birthdate);
     const birthDate = DateTime.fromISO(birthdate);
     //Get the current date and time
     const now = DateTime.now();
