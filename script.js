@@ -24,6 +24,11 @@ const calculateAge = () => {
     // Get the current date and time
     const now = luxon.DateTime.now();
 
+    // Check if the birthday is in the future
+    if (birthDate > now) {
+      result.innerHTML = `Birthdate cannot be in the future. Please enter a valid date.`;
+      return;
+    }
     // Calculate the age in years, months, and days
     const age = now.diff(birthDate, "years").years;
     const months = now.diff(birthDate, "months").months % 12;
