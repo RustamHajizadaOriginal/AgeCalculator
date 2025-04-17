@@ -24,15 +24,32 @@ const calculateAge = () => {
     // Get the current date and time
     const now = luxon.DateTime.now();
 
-    // Check if the birthday is in the future
+    // Check if the birthdate is in the future
     if (birthDate > now) {
-      result.innerHTML = `Birthdate cannot be in the future. Please enter a valid date.`;
+      result.innerHTML =
+        "Birthdate cannot be in the future. Please enter a valid date.";
       return;
     }
-    // Calculate the age in years, months, and days
-    const age = now.diff(birthDate, "years").years;
-    const months = now.diff(birthDate, "months").months % 12;
-    const days = now.diff(birthDate, "days").days % 30;
+
+    // Calculate the age in years
+    const age = now.year - birthDate.year;
+
+    // Calculate the months and days
+    const months = now.month - birthDate.month;
+    const days = now.day - birthDate.day;
+
+    // Adjust for negative months and days
+    if (days < 0) {
+      const previousMonth = now.minus({ days: now.day }).month;
+      const daysInPreviousMonth = now.minus({ days: now.day }).daysInMonth;
+      days += daysInPreviousMonth;
+      months -= 1;
+    }
+
+    if (months < 0) {
+      months += 12;
+      age -= 1;
+    }
 
     // Display the result
     result.innerHTML = `Ooo My GOD!! You are <span class="year">${age}</span> years, <span class="month">${months}</span> months and <span class="day">${days}</span> days old, That is an achievement!!!`;
