@@ -29,7 +29,7 @@ const calculateAge = () => {
     //Get the current date and time
     const now = luxon.DateTime.now();
 
-    // Calculate the age in years, months, and days
+    // Calculate the age in years, months, and days,to verify
     const age = now.diff(birthDate, "years").years;
     const months = now.diff(birthDate, "months").months % 12;
     const days = now.diff(birthDate, "days").days % 30;
