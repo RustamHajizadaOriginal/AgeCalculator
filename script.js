@@ -3,13 +3,14 @@
 // const { DateTime } = require("luxon");
 // Note: In a browser environment, Luxon is included via a script tag in the HTML file
 
-// function to calculate age
 const calculateAge = () => {
   // Get the input element and result element
   const userInputEl = document.getElementById("date");
   const result = document.getElementById("result");
+
   // Get the birthdate from the input field
   const birthdate = userInputEl.value;
+
   // Validate the birthdate
   if (!birthdate) {
     result.innerHTML = "Please enter a valid birthdate";
@@ -17,28 +18,20 @@ const calculateAge = () => {
   }
 
   try {
-    // Debugging: Log the birthdate to ensure it's in the correct format
-    console.log("Birthdate from input:", birthdate);
-
     // Parse the birthdate using Luxon
     const birthDate = luxon.DateTime.fromISO(birthdate);
 
-    // Debugging: Log the parsed birthdate to ensure it's correct
-    console.log("Parsed birthdate:", birthDate.toISO());
-
-    //Get the current date and time
+    // Get the current date and time
     const now = luxon.DateTime.now();
 
-    // Calculate the age in years, months, and days,to verify
+    // Calculate the age in years, months, and days
     const age = now.diff(birthDate, "years").years;
     const months = now.diff(birthDate, "months").months % 12;
     const days = now.diff(birthDate, "days").days % 30;
 
     // Display the result
-    result.innerHTML = `Ooo My GOD!! You are <span class="year">${age}</span> years, <span class="month">${months}</span> months and <span class="day">${days}</span> days old, That is an achevement !!!`;
+    result.innerHTML = `Ooo My GOD!! You are <span class="year">${age}</span> years, <span class="month">${months}</span> months and <span class="day">${days}</span> days old, That is an achievement!!!`;
   } catch (error) {
-    // Debugging: Log the error to understand what went wrong
-    console.error("Error parsing birthdate:", error);
     // Handle invalid birthdate format
     result.innerHTML = "Invalid birthdate format. Please enter a valid date.";
   }
